@@ -9,7 +9,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // ✅ fetch all products
   const fetchProducts = async () => {
     try {
       const res = await API.get("/products");
@@ -23,7 +22,6 @@ function App() {
     fetchProducts();
   }, []);
 
-  // ✅ ask AI
   const handleAsk = async (query) => {
     try {
       setLoading(true);
