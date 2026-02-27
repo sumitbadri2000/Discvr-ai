@@ -14,5 +14,4 @@ app.use(express.json());
 app.use("/api/products", productRoutes);
 app.use("/api/ask", askRoutes);
 
-// ✅ REQUIRED for Vercel serverless
 export default app;

@@ -48,7 +48,6 @@ Return ONLY valid JSON:
     let parsed;
 
     try {
-      // ✅ extract JSON from model response
       const jsonMatch = text.match(/\{[\s\S]*\}/);
 
       if (!jsonMatch) {
@@ -57,7 +56,7 @@ Return ONLY valid JSON:
 
       parsed = JSON.parse(jsonMatch[0]);
     } catch (err) {
-      console.error("❌ JSON parse error:", text);
+      console.error("JSON parse error:", text);
 
       return res.status(502).json({
         message: "AI returned invalid format",
