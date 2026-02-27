@@ -40,23 +40,37 @@ function App() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">AI Product Discovery</h1>
+    <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+      <h1 className="text-5xl font-bold mb-8 text-center bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+        AI Product Discovery
+      </h1>
 
-      <AskBox onAsk={handleAsk} loading={loading} />
+      <div className="max-w-4xl mx-auto mb-8">
+        <AskBox onAsk={handleAsk} loading={loading} />
+      </div>
 
       {error && (
-        <div className="bg-red-100 text-red-600 p-3 rounded mb-4">{error}</div>
+        <div className="max-w-4xl mx-auto mb-6">
+          <div className="bg-red-900/90 border border-red-700 text-red-200 p-4 rounded-lg shadow-lg shadow-red-900/20">
+            {error}
+          </div>
+        </div>
       )}
 
       {summary && (
-        <div className="bg-gray-100 p-4 rounded mb-6">🤖 {summary}</div>
+        <div className="max-w-4xl mx-auto mb-8">
+          <div className="bg-linear-to-r from-purple-800/50 to-blue-800/50 border border-purple-700/30 text-purple-100 p-6 rounded-xl shadow-xl backdrop-blur-sm">
+            🤖 <span className="font-medium">{summary}</span>
+          </div>
+        </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {products.map((p) => (
-          <ProductCard key={p.id} product={p} />
-        ))}
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
       </div>
     </div>
   );
